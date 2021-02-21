@@ -136,18 +136,31 @@
 
   &__panel {
     position: fixed;
-    z-index: $z-index-settings;
     top: 0;
     right: 0;
+    z-index: $z-index-settings;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100%;
     width: 100%;
     max-width: $setting-panel-max-width;
-    padding: 3.125rem;
+    padding: 3.125rem 3.125rem 0 3.125rem;
     overflow: auto;
     -webkit-overflow-scrolling: auto;
 
+    // Worksround for firefox overflow padding bottom issue
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=748518
+    &__group:last-child {
+      padding-bottom: 3.125rem;
+    }
+
     @media #{$mobile} {
-      padding: 10%;
+      padding: 10% 10% 0 10%;
+
+      &__group:last-child {
+        padding-bottom: 10%;
+      }
     }
   }
 

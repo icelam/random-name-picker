@@ -24,26 +24,24 @@ include ../mixins/icons
 
   #settings.settings
     #settings-panel.settings__panel
-      //- div.align--right
-      //-   .icon-button#settings-close
-      //-     +svg-icon.red.big(svg-icon-name='close')
-      h1.settings__title Settings
-      div.input-group
-        label.input-label(for="name-list") Name List
-        textarea.input-field.input-field--textarea(rows="8" placeholder="Separate each name by line break" id="name-list")
+      div.settings__panel__group
+        h1.settings__title Settings
+        div.input-group
+          label.input-label(for="name-list") Name List
+          textarea.input-field.input-field--textarea(rows="8" placeholder="Separate each name by line break" id="name-list")
 
-      div.input-group.input-group--2-column
-        label.input-label(for="remove-from-list") Remove winner from list
-        label.input--switch
-          input(type="checkbox" checked="true" id="remove-from-list")
-          span.slider
+        div.input-group.input-group--2-column
+          label.input-label(for="remove-from-list") Remove winner from list
+          label.input--switch
+            input(type="checkbox" checked="true" id="remove-from-list")
+            span.slider
 
-      div.input-group.input-group--2-column
-        label.input-label(for="enable-sound") Enable sound effect
-        label.input--switch
-          input(type="checkbox" checked="true" id="enable-sound")
-          span.slider
-
-      button#settings-save.solid-button.solid-button Save
-      button#settings-close.solid-button.solid-button--danger Discard and close
+        div.input-group.input-group--2-column
+          label.input-label(for="enable-sound") Enable sound effect
+          label.input--switch
+            input(type="checkbox" checked="true" id="enable-sound")
+            span.slider
+      div.settings__panel__group
+        button#settings-save.solid-button.solid-button Save
+        button#settings-close.solid-button.solid-button--danger Discard and close
 
