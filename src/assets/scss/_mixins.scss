@@ -1,0 +1,24 @@
+@mixin flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin shadow($size, $scale-factor: 1) {
+  @if $size == 'large' {
+    box-shadow: 0.625rem *
+      $scale-factor
+      0.625rem *
+      $scale-factor
+      0
+      $color-slot-shadow;
+  } @else {
+    box-shadow: 0.4375rem *
+      $scale-factor
+      0.4375rem *
+      $scale-factor
+      0
+      $color-slot-shadow;
+  }
+}

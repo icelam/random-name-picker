@@ -1,0 +1,50 @@
+// scale factor
+$medium-desktop-scale-factor: 0.8;
+$small-desktop-scale-factor: 0.66;
+$tablet-scale-factor: 0.5;
+$mobile-scale-factor: 0.288;
+$scale-factors: (
+  $medium-desktop: $medium-desktop-scale-factor,
+  $small-desktop: $small-desktop-scale-factor,
+  $tablet: $tablet-scale-factor,
+  $mobile: $mobile-scale-factor,
+);
+
+// z-index
+$z-index-sunburst: 0;
+$z-index-confetti: 1;
+$z-index-lucky-draw: 2;
+$z-index-slot: 3;
+$z-index-title: 4;
+$z-index-draw-button: 5;
+$z-index-settings: 10;
+
+// title
+$title-width: 31rem;
+$title-margin-top: 1.75rem;
+$title-margin-bottom: 4.875rem;
+
+// reel
+$reel-item-height: 7.5rem;
+
+// slot
+$slot-width: 62.5rem;
+$slot-height: 14.375rem;
+$slot-border-radius: 1.25rem;
+$slot-border-width: 1.625rem;
+$slot-inner-padding: (
+    $slot-height - ($slot-border-width * 2) - $reel-item-height
+  ) / 2;
+
+// draw-button
+$draw-button-margin-top: 5.5rem;
+$draw-button-width: 22.5rem;
+
+// settings
+$setting-panel-max-width: 33.125rem; // 530px;
+
+// switch
+$switch-handle-diameter: 24px;
+$switch-slider-width: 75px;
+$switch-slider-height: 30px;
+$switch-slider-padding: ($switch-slider-height - $switch-handle-diameter) / 2;

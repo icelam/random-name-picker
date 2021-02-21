@@ -1,0 +1,113 @@
+{
+  "env":{
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base"
+  ],
+  "settings": {
+    "import/resolver": [
+      "node",
+      {
+        "webpack": {
+          "config": "./webpack/webpack.base.conf.js"
+        },
+        "extensions": [".js, .ts"]
+      }
+    ]
+  },
+  "rules": {
+    "import/extensions": ["error", {
+      "js": "never",
+      "ts": "never"
+    }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "comma-dangle": ["error", "never"],
+    "no-console": ["warn", { "allow": ["warn", "error"] }]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "airbnb-base",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "settings": {
+        "import/resolver": [
+          "node",
+          {
+            "webpack": {
+              "config": "./webpack/webpack.base.conf.js"
+            },
+            "extensions": [".js, .ts"]
+          }
+        ]
+      },
+      "rules": {
+        "import/extensions": ["error", {
+          "js": "never",
+          "ts": "never"
+        }],
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": true,
+            "optionalDependencies": false,
+            "peerDependencies": false
+          }
+        ],
+        "comma-dangle": ["error", "never"],
+        "no-console": ["warn", { "allow": ["warn", "error"] }]
+      },
+    },
+    {
+      "files": ["webpack/**/*.js", "scripts/**/*.js"],
+      "env":{
+        "node": true
+      },
+      "extends": [
+        "eslint:recommended",
+        "airbnb-base"
+      ],
+      "settings": {
+        "import/resolver": [
+          "node"
+        ]
+      },
+      "rules": {
+        "import/extensions": ["error", {
+          "js": "never",
+          "ts": "never"
+        }],
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": true,
+            "optionalDependencies": false,
+            "peerDependencies": false
+          }
+        ],
+        "comma-dangle": ["error", "never"],
+        "no-console": ["off"]
+      }
+    }
+  ]
+}

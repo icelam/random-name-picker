@@ -1,0 +1,33 @@
+name: Create release
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Create release
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+      - name: Setup Node.js version
+        uses: actions/setup-node@master
+        with:
+          node-version: '12.16.1'
+
+      - name: Generate release body
+        run: |
+          yarn extract-latest-change-log
+      - name: Create release
+        id: create-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
+          body_path: RELEASE_BODY.md

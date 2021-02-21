@@ -1,0 +1,88 @@
+.solid-button {
+  display: inline-block;
+  border: none;
+  appearance: none;
+  @include shadow('large') border-radius: 0.625rem;
+  background-color: $color-button-default-background;
+  color: $color-button-text;
+  padding: 1rem 0.625rem;
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  font-family: inherit;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: $color-button-default-hover-background;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: $color-button-default-background;
+    }
+  }
+}
+
+.solid-button--danger {
+  background-color: $color-button-danger-background;
+  color: $color-button-text;
+
+  &:hover {
+    background-color: $color-button-danger-hover-background;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: $color-button-danger-background;
+    }
+  }
+}
+
+.icon-button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  box-shadow: none;
+  appearance: none;
+  border-radius: 0;
+  color: $color-link;
+  display: inline-block;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 2.5rem;
+  line-height: 1em;
+  text-align: center;
+
+  > svg {
+    width: 1em;
+    height: 1em;
+    display: block;
+  }
+
+  &:hover {
+    color: $color-link-hover;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+.icon-button--small {
+  font-size: 1.5rem;
+}

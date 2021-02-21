@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "es2017",
+    "module": "es2015",
+    "lib": ["es2017", "dom", "dom.iterable", "es2019.array"],
+    "sourceMap": true,
+    "noEmit": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@": ["src/*"],
+      "@js/*": ["src/assets/js/*"],
+      "@styles/*": ["src/assets/scss/*"],
+      "@images/*": ["src/assets/images/*"],
+      "@fonts/*": ["src/assets/fonts/*"]
+    },
+  },
+  "include": ["src/**/*.ts", "./declarations.d.ts"],
+  "exclude": [],
+}

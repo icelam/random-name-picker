@@ -1,0 +1,10 @@
+mixin svg-icon
+  - var icon = attributes['svg-icon-name']
+
+  case icon
+    when 'close'
+      include ../assets/images/close.svg
+    when 'settings'
+      include ../assets/images/settings.svg
+    when 'fullscreen'
+      include ../assets/images/fullscreen.svg

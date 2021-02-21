@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap');
+
+*:not(input, textarea, select) {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+* {
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Nunito Sans', 微軟正黑體, 'Microsoft JhengHei',
+    'Microsoft JhengHei UI', 'Microsoft YaHei', 'Microsoft YaHei UI',
+    'PingFang TC', 'Lantinghei TC', 'Heiti TC', 'Apple LiGothic', 'PMingLiU',
+    Arial, sans-serif;
+}
+
+#app {
+  padding: 0 3.125rem;
+  min-height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: auto;
+  @include flex-center;
+
+  @media #{$mobile} {
+    padding: 0 5%;
+  }
+}
+
+.theme--red {
+  background: linear-gradient(
+    240deg,
+    $color-red-step1 0.13%,
+    $color-red-step2 26.19%,
+    $color-red-step3 52.6%,
+    $color-red-step4 79.08%,
+    $color-red-step5 100%
+  );
+  color: $color-text-light;
+}
+
+.theme--purple {
+  background: linear-gradient(
+    0deg,
+    $color-purple-step1 0.13%,
+    $color-purple-step2 23.02%,
+    $color-purple-step3 46.22%,
+    $color-purple-step4 69.56%,
+    $color-purple-step5 92.87%,
+    $color-purple-step6 100%
+  );
+  color: $color-text-light;
+}
+
+.main {
+  @include flex-center;
+  padding: 3.125rem 0;
+  width: 100%;
+  max-width: $screen-xl;
+  flex: 1 1 0;
+  min-height: min-content;
+}
+
+.footer {
+  width: 100%;
+  padding: 0.3125rem;
+  font-size: 0.75rem;
+  text-align: center;
+  box-sizing: border-box;
+  flex: 0 1 auto;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:active {
+    text-decoration: underline;
+    color: $color-link-hover;
+  }
+}
+
+.align--right {
+  text-align: right;
+}

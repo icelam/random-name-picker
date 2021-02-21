@@ -1,0 +1,35 @@
+doctype 1.1
+
+html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    meta(name="language" content="English")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=no")
+    meta(name="format-detection" content="telephone=no, date=no, address=no, email=no")
+    meta(name="msapplication-tap-highlight" content="no")
+
+    //- SEO
+    include ./partials/seo.pug
+
+    //- Open Graph
+    include ./partials/open-graph.pug
+
+    //- PWA
+    include ./partials/webapp.pug
+
+    //- Favicons
+    link(rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon")
+
+    title %APP_META_TITLE%
+
+    //- Google Tag Manager
+    include ./partials/gtm-script.html
+
+  body
+    //- Google Tag Manager (noscript)
+    include ./partials/gtm-noscript.html
+
+    #app.theme--red
+      include ./pages/landing.pug
+      include ./partials/footer.pug

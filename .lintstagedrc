@@ -1,0 +1,8 @@
+{
+  "src/**/*.{json,css,scss,md}": [
+    "prettier --single-quote --write"
+  ],
+  "src/**/*.{js,ts}": [
+    "eslint --report-unused-disable-directives --fix --quiet"
+  ]
+}
