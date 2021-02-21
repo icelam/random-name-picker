@@ -9,6 +9,9 @@ interface SlotConfigurations {
   onSpinStart?: () => void;
   /** User configuration for callback function that runs after spinning reel */
   onSpinEnd?: () => void;
+
+  /** User configuration for callback function that runs after user updates the name list */
+  onNameListChanged?: () => void;
 }
 
 // commitStyles() is not yet supported by TypeScript
@@ -39,13 +42,16 @@ export default class Slot {
   /** Callback function that runs after spinning reel */
   private onSpinEnd?: NonNullable<SlotConfigurations['onSpinEnd']>;
 
+  /** Callback function that runs after spinning reel */
+  private onNameListChanged?: NonNullable<SlotConfigurations['onNameListChanged']>;
+
   /**
    * Constructor of Slot
    * @param maxReelItems  Maximum item inside a reel
    * @param removeWinner  Whether winner should be removed from name list
    * @param reelContainerSelector  The element ID of reel items to be appended
    * @param onSpinStart  Callback function that runs before spinning reel
-   * @param onSpinEnd  Callback function that runs after spinning reel
+   * @param onNameListChanged  Callback function that runs when user updates the name list
    */
   constructor(
     {
@@ -53,7 +59,8 @@ export default class Slot {
       removeWinner = true,
       reelContainerSelector,
       onSpinStart,
-      onSpinEnd
+      onSpinEnd,
+      onNameListChanged
     }: SlotConfigurations
   ) {
     this.nameList = [];
@@ -62,6 +69,7 @@ export default class Slot {
     this.shouldRemoveWinner = removeWinner;
     this.onSpinStart = onSpinStart;
     this.onSpinEnd = onSpinEnd;
+    this.onNameListChanged = onNameListChanged;
 
     // Create reel animation
     this.reelAnimation = this.reelContainer?.animate(
@@ -93,6 +101,17 @@ export default class Slot {
    */
   set names(names: string[]) {
     this.nameList = names;
+
+    const reelItemsToRemove = this.reelContainer?.children
+      ? Array.from(this.reelContainer.children)
+      : [];
+
+    reelItemsToRemove
+      .forEach((element) => element.remove());
+
+    if (this.onNameListChanged) {
+      this.onNameListChanged();
+    }
   }
 
   /** Getter for name list */

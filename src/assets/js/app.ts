@@ -69,12 +69,17 @@ import SoundEffects from '@js/SoundEffects';
     confettiAnimationId = window.requestAnimationFrame(confettiAnimation);
   };
 
-  /**  Function to be trigger before spinning */
-  const onSpinStart = () => {
+  /** Function to stop the winning animation */
+  const stopWinningAnimation = () => {
     if (confettiAnimationId) {
       window.cancelAnimationFrame(confettiAnimationId);
     }
     sunburstSvg.style.display = 'none';
+  };
+
+  /**  Function to be trigger before spinning */
+  const onSpinStart = () => {
+    stopWinningAnimation();
     drawButton.disabled = true;
     settingsButton.disabled = true;
     soundEffects.spin((MAX_REEL_ITEMS - 1) / 10);
@@ -94,7 +99,8 @@ import SoundEffects from '@js/SoundEffects';
     reelContainerSelector: '#reel',
     maxReelItems: MAX_REEL_ITEMS,
     onSpinStart,
-    onSpinEnd
+    onSpinEnd,
+    onNameListChanged: stopWinningAnimation
   });
 
   /** To open the setting page */
