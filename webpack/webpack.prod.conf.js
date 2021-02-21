@@ -40,7 +40,7 @@ module.exports = merge(baseWebpackConfig, {
     new Webpack.DefinePlugin(clientEnv.stringified),
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'assets/css/[name].bundle.css'
+      filename: 'assets/css/[name].[chunkhash:8].css'
     }),
     new WorkboxPlugin.GenerateSW({
       clientsClaim: false,
