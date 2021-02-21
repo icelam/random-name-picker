@@ -14,11 +14,6 @@ interface SlotConfigurations {
   onNameListChanged?: () => void;
 }
 
-// commitStyles() is not yet supported by TypeScript
-interface WebAnimation extends Animation {
-  commitStyles?: () => void;
-}
-
 /** Class for doing random name pick and animation */
 export default class Slot {
   /** List of names to draw from */
@@ -34,7 +29,7 @@ export default class Slot {
   private shouldRemoveWinner: NonNullable<SlotConfigurations['removeWinner']>;
 
   /** Reel animation object instance */
-  private reelAnimation?: WebAnimation;
+  private reelAnimation?: Animation;
 
   /** Callback function that runs before spinning reel */
   private onSpinStart?: NonNullable<SlotConfigurations['onSpinStart']>;
@@ -84,13 +79,6 @@ export default class Slot {
         iterations: 1
       }
     );
-
-    // To fix animation not playing after initial play on macOS Safari
-    // commitStyles() is not available on pollyfilled version
-    // FIXME: remove the use of commitStyles()
-    if (this.reelAnimation?.commitStyles) {
-      this.reelAnimation.commitStyles();
-    }
 
     this.reelAnimation?.cancel();
   }
@@ -212,9 +200,9 @@ export default class Slot {
 
     await animationPromise;
 
-    /* if (reelAnimation.playState !== 'finished') {
-      reelAnimation.finish();
-    } */
+    // Sets the current playback time to the end of the animation
+    // Fix issue for animatin not playing after the initial play on Safari
+    reelAnimation.finish();
 
     Array.from(reelContainer.children)
       .slice(0, reelContainer.children.length - 1)
