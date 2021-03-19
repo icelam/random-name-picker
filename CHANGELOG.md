@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.4](https://github.com/icelam/random-name-picker/compare/v1.0.3...v1.0.4) (2021-03-19)
+
+
+### Bug Fixes
+
+* fix page overflow when sunburst is displayed ([b279b34](https://github.com/icelam/random-name-picker/commit/b279b34f8088288b443f302dda7e513caf90f900))
+
 ### [1.0.3](https://github.com/icelam/random-name-picker/compare/v1.0.2...v1.0.3) (2021-02-22)
 
 ### [1.0.2](https://github.com/icelam/random-name-picker/compare/v1.0.1...v1.0.2) (2021-02-21)
