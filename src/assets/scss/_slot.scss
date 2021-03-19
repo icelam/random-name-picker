@@ -193,13 +193,23 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -50vmin 0 0 -50vmin;
-  width: 100vmin;
-  height: auto;
-  animation: rotate 10s infinite linear;
+  margin: -50vh 0 0 -50vw;
+  width: 100vw;
+  height: 100vh;
   display: none;
   z-index: $z-index-sunburst;
   pointer-events: none;
+  overflow: hidden;
+
+  > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50vmin 0 0 -50vmin;
+    width: 100vmin;
+    height: auto;
+    animation: rotate 10s infinite linear;
+  }
 }
 
 .confetti {
