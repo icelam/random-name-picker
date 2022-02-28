@@ -19,6 +19,9 @@ export default class Slot {
   /** List of names to draw from */
   private nameList: string[];
 
+  /** Whether there is a previous winner element displayed in reel */
+  private havePreviousWinner: boolean;
+
   /** Container that hold the reel items */
   private reelContainer: HTMLElement | null;
 
@@ -59,6 +62,7 @@ export default class Slot {
     }: SlotConfigurations
   ) {
     this.nameList = [];
+    this.havePreviousWinner = false;
     this.reelContainer = document.querySelector(reelContainerSelector);
     this.maxReelItems = maxReelItems;
     this.shouldRemoveWinner = removeWinner;
@@ -70,8 +74,10 @@ export default class Slot {
     this.reelAnimation = this.reelContainer?.animate(
       [
         { transform: 'none' },
-        // Althought -calc(100% - 7rem) is more accurate, it is not working for pollyfilled version
-        { transform: `translateY(-${(100 / this.maxReelItems) * (this.maxReelItems - 1)}%)` }
+        // Here we transform the reel to move up and stop at the top of last item
+        // "(Number of item - 1) * height of reel item" of wheel is the amount of pixel to move up
+        // 7.5rem * 16 = 120px, which equals to reel item height
+        { transform: `translateY(-${(this.maxReelItems - 1) * (7.5 * 16)}px)` }
       ],
       {
         duration: this.maxReelItems * 100, // 100ms for 1 item
@@ -96,6 +102,8 @@ export default class Slot {
 
     reelItemsToRemove
       .forEach((element) => element.remove());
+
+    this.havePreviousWinner = false;
 
     if (this.onNameListChanged) {
       this.onNameListChanged();
@@ -168,7 +176,7 @@ export default class Slot {
       randomNames = [...randomNames, ...randomNames];
     }
 
-    randomNames = randomNames.slice(0, this.maxReelItems);
+    randomNames = randomNames.slice(0, this.maxReelItems - Number(this.havePreviousWinner));
 
     const fragment = document.createDocumentFragment();
 
@@ -189,6 +197,7 @@ export default class Slot {
         (name) => name === randomNames[randomNames.length - 1]
       ), 1);
     }
+
     console.log('Remaining: ', this.nameList);
 
     // Play the spin animation
@@ -207,6 +216,8 @@ export default class Slot {
     Array.from(reelContainer.children)
       .slice(0, reelContainer.children.length - 1)
       .forEach((element) => element.remove());
+
+    this.havePreviousWinner = true;
 
     if (this.onSpinEnd) {
       this.onSpinEnd();
