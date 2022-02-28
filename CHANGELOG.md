@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/icelam/random-name-picker/compare/v1.0.4...v1.1.0) (2022-02-28)
+
+
+### Features
+
+* refine animation with blur filter ([1025350](https://github.com/icelam/random-name-picker/commit/10253508457fd05e9a4ea8c0a005fb0a7962f817))
+
+
+### Bug Fixes
+
+* fix maximum number of reel item when previous winner is shown ([70994da](https://github.com/icelam/random-name-picker/commit/70994daef788c5545caeb5e778c6c3e25c6a6150))
+* fix page overflow when sunburst is displayed ([8e1c167](https://github.com/icelam/random-name-picker/commit/8e1c167c81fd68c8756f2826bd20a48d1555bf71))
+* fix the size of og-image ([b5a904e](https://github.com/icelam/random-name-picker/commit/b5a904ed70e465a34774b97662a16175304d0b16))
+
 ### [1.0.4](https://github.com/icelam/random-name-picker/compare/v1.0.3...v1.0.4) (2021-03-19)
 
 
