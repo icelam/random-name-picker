@@ -8,7 +8,7 @@
 
 <p align="center">
     <a href="https://www.typescriptlang.org/"><img height="20" src="https://img.shields.io/badge/built_with-TypeScript-007acc.svg?logo=typescript" alt="Built with TypeScript"></a>
-    <a href="https://nodejs.org/en/"><img height="20" src="https://img.shields.io/badge/Node.js-12-026e00.svg?logo=Node.js" alt="Node.js"></a>
+    <a href="https://nodejs.org/en/"><img height="20" src="https://img.shields.io/badge/Node.js-14-026e00.svg?logo=Node.js" alt="Node.js"></a>
     <a href="https://yarnpkg.com/"><img height="20" src="https://img.shields.io/badge/Yarn-1-25799f.svg?logo=Yarn" alt="Yarn"></a>
     <a href="https://eslint.org/"><img height="20" src="https://img.shields.io/badge/code_style-ESLint-5b5be0.svg?logo=eslint" alt="Code Style"></a>
     <a href="https://conventionalcommits.org"><img height="20" src="https://img.shields.io/badge/conventional_commits-1.0.0-yellow.svg" alt="Conventional Commits"></a>
@@ -29,7 +29,7 @@ Demo is available at [https://pinkylam.me/playground/random-name-picker](https:/
 ## Development
 
 ### Prerequisite
-* Node 12 or nvm installed
+* Node 14 above or nvm installed
 * Yarn or NPM installed
 
 ### Install dependencies
