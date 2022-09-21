@@ -18,7 +18,7 @@ $color-purple-step5: #4828bc;
 $color-purple-step6: #3f25b2;
 
 $color-yellow: #ffbf1f;
-$color-blod-orange: #e54c23;
+$color-blood-orange: #e54c23;
 $color-shadow: rgba($color-black, 0.2);
 
 // body
@@ -31,12 +31,8 @@ $color-link-hover: rgba($color-white, 0.9);
 $color-button-text: $color-white;
 $color-button-default-background: $color-yellow;
 $color-button-default-hover-background: lighten($color-yellow, 5%);
-$color-button-danger-background: $color-blod-orange;
-$color-button-danger-hover-background: lighten($color-blod-orange, 5%);
-
-// title
-$color-title: $color-white;
-$color-title-border: $color-yellow;
+$color-button-danger-background: $color-blood-orange;
+$color-button-danger-hover-background: lighten($color-blood-orange, 5%);
 
 // slot
 $color-slot-background: $color-yellow;
