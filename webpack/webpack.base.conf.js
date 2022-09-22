@@ -10,7 +10,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: 'assets/js/[name].js'
+    filename: 'assets/js/[name].js',
+    assetModuleFilename: 'assets/[name].[hash:8][ext]'
   },
   optimization: {
     splitChunks: {
@@ -75,34 +76,31 @@ module.exports = {
         loader: 'html-loader'
       },
       {
-        test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
-        loader: 'url-loader',
+        test: /\.(png|jpe?g|gif|svg|ico|webp)(\?.*)?$/,
         exclude: [
           path.resolve(__dirname, '../src/assets/fonts')
         ],
-        options: {
-          limit: -1,
-          name: 'assets/images/[ext]/[name].[hash:7].[ext]'
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name].[hash:8][ext]'
         }
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: -1,
-          name: 'assets/media/[name].[hash:7].[ext]'
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/media/[name].[hash:8][ext]'
         }
       },
       {
         test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
-        loader: 'url-loader',
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name].[hash:8][ext]'
+        },
         exclude: [
           path.resolve(__dirname, '../src/assets/images')
-        ],
-        options: {
-          limit: -1,
-          name: 'assets/fonts/[name].[hash:7].[ext]'
-        }
+        ]
       }
     ]
   }

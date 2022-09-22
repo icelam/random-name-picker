@@ -28,18 +28,19 @@ const clientEnv = getClientEnvironment('development');
 
 module.exports = merge(baseWebpackConfig, {
   mode: 'development',
-  target: 'web', // to have hot reload to work, production should use 'browserslist'
   devtool: 'inline-source-map',
   output: {
     chunkFilename: 'assets/js/[name].chunk.js'
   },
   devServer: {
-    inline: true,
     host: '0.0.0.0',
     port: 8888,
-    overlay: {
-      warnings: false,
-      errors: true
+    watchFiles: ['src/**/*'],
+    client: {
+      overlay: {
+        warnings: false,
+        errors: true
+      }
     }
   },
   plugins: [

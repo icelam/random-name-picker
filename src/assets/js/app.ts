@@ -128,6 +128,8 @@ import SoundEffects from '@js/SoundEffects';
   });
 
   // Hide fullscreen button when it is not supported
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore - for older browsers support
   if (!(document.documentElement.requestFullscreen && document.exitFullscreen)) {
     fullscreenButton.remove();
   }
