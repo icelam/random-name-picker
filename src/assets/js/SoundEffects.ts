@@ -93,11 +93,11 @@ export default class SoundEffects {
     }
 
     const musicNotes: SoundSeries[] = [
-      { key: 'C4', duration: 0.2 },
-      { key: 'D4', duration: 0.2 },
-      { key: 'E4', duration: 0.2 },
-      { key: 'G4', duration: 0.225 },
+      { key: 'C4', duration: 0.175 },
+      { key: 'D4', duration: 0.175 },
       { key: 'E4', duration: 0.175 },
+      { key: 'G4', duration: 0.275 },
+      { key: 'E4', duration: 0.15 },
       { key: 'G4', duration: 0.9 }
     ];
     const totalDuration = musicNotes
