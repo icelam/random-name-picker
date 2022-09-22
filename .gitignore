@@ -10,3 +10,5 @@ yarn-error.log*
 bundle-analyzer-plugin-report.html
 
 .env.production.local
+
+/design/appicon-templates-assets
