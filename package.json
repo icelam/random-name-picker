@@ -12,7 +12,7 @@
     "extract-latest-change-log": "node scripts/extractLatestChangeLog.js"
   },
   "author": "Ice Lam",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.19.1",
     "@babel/preset-env": "^7.19.1",
