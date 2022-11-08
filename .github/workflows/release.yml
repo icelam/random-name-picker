@@ -11,11 +11,11 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@main
+        uses: actions/checkout@v3
       - name: Setup Node.js version
         uses: actions/setup-node@main
         with:
-          node-version: '14.17.5'
+          node-version-file: '.nvmrc'
 
       - name: Generate release body
         run: |

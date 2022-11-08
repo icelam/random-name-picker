@@ -1,0 +1,13 @@
+# Basic dependabot.yml file with
+# https://docs.github.com/en/github/administering-a-repository/enabling-and-disabling-version-updates#example-dependabotyml-file
+
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      timezone: "Asia/Hong_Kong"
+    commit-message:
+      prefix: "ci"
+    rebase-strategy: "auto"
