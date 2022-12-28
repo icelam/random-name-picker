@@ -41,6 +41,7 @@ import SoundEffects from '@js/SoundEffects';
     return;
   }
 
+  const LOCAL_STORAGE_KEY = 'random-activity-picker';
   const soundEffects = new SoundEffects();
   const MAX_REEL_ITEMS = 40;
   const CONFETTI_COLORS = ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff'];
@@ -77,6 +78,15 @@ import SoundEffects from '@js/SoundEffects';
     sunburstSvg.style.display = 'none';
   };
 
+  /** Function to persist the state to local storage */
+  const persistNames = () => {
+    // eslint-disable-next-line no-use-before-define
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(slot.names));
+  };
+
+  /** Function to retrieve the state from local storage */
+  const retrieveNames = () => JSON.parse(localStorage[LOCAL_STORAGE_KEY] || '[]');
+
   /**  Function to be trigger before spinning */
   const onSpinStart = () => {
     stopWinningAnimation();
@@ -92,11 +102,13 @@ import SoundEffects from '@js/SoundEffects';
     await soundEffects.win();
     drawButton.disabled = false;
     settingsButton.disabled = false;
+    persistNames();
   };
 
   /** Slot instance */
   const slot = new Slot({
     reelContainerSelector: '#reel',
+    nameList: retrieveNames(),
     maxReelItems: MAX_REEL_ITEMS,
     onSpinStart,
     onSpinEnd,
@@ -154,6 +166,7 @@ import SoundEffects from '@js/SoundEffects';
     slot.names = nameListTextArea.value
       ? nameListTextArea.value.split(/\n/).filter((name) => Boolean(name.trim()))
       : [];
+    persistNames();
     slot.shouldRemoveWinnerFromNameList = removeNameFromListCheckbox.checked;
     soundEffects.mute = !enableSoundCheckbox.checked;
     onSettingsClose();

@@ -1,4 +1,6 @@
 interface SlotConfigurations {
+  /** User configuration for names in the list */
+  nameList?: string[];
   /** User configuration for maximum item inside a reel */
   maxReelItems?: number;
   /** User configuration for whether winner should be removed from name list */
@@ -17,7 +19,7 @@ interface SlotConfigurations {
 /** Class for doing random name pick and animation */
 export default class Slot {
   /** List of names to draw from */
-  private nameList: string[];
+  private nameList: NonNullable<SlotConfigurations['nameList']>;
 
   /** Whether there is a previous winner element displayed in reel */
   private havePreviousWinner: boolean;
@@ -45,6 +47,7 @@ export default class Slot {
 
   /**
    * Constructor of Slot
+   * @param nameList  Names to seed the name list with
    * @param maxReelItems  Maximum item inside a reel
    * @param removeWinner  Whether winner should be removed from name list
    * @param reelContainerSelector  The element ID of reel items to be appended
@@ -53,6 +56,7 @@ export default class Slot {
    */
   constructor(
     {
+      nameList = [],
       maxReelItems = 30,
       removeWinner = true,
       reelContainerSelector,
@@ -61,7 +65,7 @@ export default class Slot {
       onNameListChanged
     }: SlotConfigurations
   ) {
-    this.nameList = [];
+    this.nameList = nameList;
     this.havePreviousWinner = false;
     this.reelContainer = document.querySelector(reelContainerSelector);
     this.maxReelItems = maxReelItems;
