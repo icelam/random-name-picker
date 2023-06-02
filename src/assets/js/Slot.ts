@@ -1,6 +1,12 @@
 interface SlotConfigurations {
   /** User configuration for maximum item inside a reel */
   maxReelItems?: number;
+  /**
+   * User configuration for how many millsecond a reel item should display.
+   * e.g. maxReelItems = 100 and reelItemDisplayDuration = 100 will have an spinning animation
+   * that last around 10 seconds
+   */
+  reelItemDisplayDuration?: number;
   /** User configuration for whether winner should be removed from name list */
   removeWinner?: boolean;
   /** User configuration for element selector which reel items should append to */
@@ -28,6 +34,9 @@ export default class Slot {
   /** Maximum item inside a reel */
   private maxReelItems: NonNullable<SlotConfigurations['maxReelItems']>;
 
+  /** Maximum display duration of a single reel item in milliseconds */
+  private reelItemDisplayDuration: NonNullable<SlotConfigurations['reelItemDisplayDuration']>;
+
   /** Whether winner should be removed from name list */
   private shouldRemoveWinner: NonNullable<SlotConfigurations['removeWinner']>;
 
@@ -46,6 +55,7 @@ export default class Slot {
   /**
    * Constructor of Slot
    * @param maxReelItems  Maximum item inside a reel
+   * @param reelItemDisplayDuration   Maximum display duration of a single reel item in milliseconds
    * @param removeWinner  Whether winner should be removed from name list
    * @param reelContainerSelector  The element ID of reel items to be appended
    * @param onSpinStart  Callback function that runs before spinning reel
@@ -54,6 +64,7 @@ export default class Slot {
   constructor(
     {
       maxReelItems = 30,
+      reelItemDisplayDuration = 100,
       removeWinner = true,
       reelContainerSelector,
       onSpinStart,
@@ -65,6 +76,7 @@ export default class Slot {
     this.havePreviousWinner = false;
     this.reelContainer = document.querySelector(reelContainerSelector);
     this.maxReelItems = maxReelItems;
+    this.reelItemDisplayDuration = reelItemDisplayDuration;
     this.shouldRemoveWinner = removeWinner;
     this.onSpinStart = onSpinStart;
     this.onSpinEnd = onSpinEnd;
@@ -74,14 +86,19 @@ export default class Slot {
     this.reelAnimation = this.reelContainer?.animate(
       [
         { transform: 'none', filter: 'blur(0)' },
-        { filter: 'blur(1px)', offset: 0.5 },
+        { filter: 'blur(1px)', offset: 0.1 },
+        { transform: `translateY(-${(this.maxReelItems - 21) * (7.5 * 16)}px)`, offset: 0.5 },
+        { transform: `translateY(-${(this.maxReelItems - 11) * (7.5 * 16)}px)`, offset: 0.6 },
+        { transform: `translateY(-${(this.maxReelItems - 6) * (7.5 * 16)}px)`, offset: 0.7 },
+        { transform: `translateY(-${(this.maxReelItems - 4) * (7.5 * 16)}px)`, offset: 0.8 },
+        { transform: `translateY(-${(this.maxReelItems - 2) * (7.5 * 16)}px)`, offset: 0.9 },
         // Here we transform the reel to move up and stop at the top of last item
         // "(Number of item - 1) * height of reel item" of wheel is the amount of pixel to move up
         // 7.5rem * 16 = 120px, which equals to reel item height
         { transform: `translateY(-${(this.maxReelItems - 1) * (7.5 * 16)}px)`, filter: 'blur(0)' }
       ],
       {
-        duration: this.maxReelItems * 100, // 100ms for 1 item
+        duration: this.maxReelItems * this.reelItemDisplayDuration,
         easing: 'ease-in-out',
         iterations: 1
       }

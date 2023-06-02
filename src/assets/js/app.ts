@@ -42,7 +42,8 @@ import SoundEffects from '@js/SoundEffects';
   }
 
   const soundEffects = new SoundEffects();
-  const MAX_REEL_ITEMS = 40;
+  const MAX_REEL_ITEMS = 1500;
+  const REEL_ITEM_DISPLAY_DURATION = 10;
   const CONFETTI_COLORS = ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff'];
   let confettiAnimationId;
 
@@ -82,7 +83,7 @@ import SoundEffects from '@js/SoundEffects';
     stopWinningAnimation();
     drawButton.disabled = true;
     settingsButton.disabled = true;
-    soundEffects.spin((MAX_REEL_ITEMS - 1) / 10);
+    soundEffects.spin((MAX_REEL_ITEMS - 1) * (REEL_ITEM_DISPLAY_DURATION / 1000));
   };
 
   /**  Functions to be trigger after spinning */
@@ -98,6 +99,7 @@ import SoundEffects from '@js/SoundEffects';
   const slot = new Slot({
     reelContainerSelector: '#reel',
     maxReelItems: MAX_REEL_ITEMS,
+    reelItemDisplayDuration: REEL_ITEM_DISPLAY_DURATION,
     onSpinStart,
     onSpinEnd,
     onNameListChanged: stopWinningAnimation
