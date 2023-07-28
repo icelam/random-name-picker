@@ -1,17 +1,17 @@
 interface SlotConfigurations {
   /** User configuration for maximum item inside a reel */
-  maxReelItems?: number;
+  maxReelItems?: number
   /** User configuration for whether winner should be removed from name list */
-  removeWinner?: boolean;
+  removeWinner?: boolean
   /** User configuration for element selector which reel items should append to */
-  reelContainerSelector: string;
+  reelContainerSelector: string
   /** User configuration for callback function that runs before spinning reel */
-  onSpinStart?: () => void;
+  onSpinStart?: () => void
   /** User configuration for callback function that runs after spinning reel */
-  onSpinEnd?: () => void;
+  onSpinEnd?: () => void
 
   /** User configuration for callback function that runs after user updates the name list */
-  onNameListChanged?: () => void;
+  onNameListChanged?: () => void
 }
 
 /** Class for doing random name pick and animation */
@@ -23,25 +23,25 @@ export default class Slot {
   private havePreviousWinner: boolean;
 
   /** Container that hold the reel items */
-  private reelContainer: HTMLElement | null;
+  private readonly reelContainer: HTMLElement | null;
 
   /** Maximum item inside a reel */
-  private maxReelItems: NonNullable<SlotConfigurations['maxReelItems']>;
+  private readonly maxReelItems: NonNullable<SlotConfigurations['maxReelItems']>;
 
   /** Whether winner should be removed from name list */
   private shouldRemoveWinner: NonNullable<SlotConfigurations['removeWinner']>;
 
   /** Reel animation object instance */
-  private reelAnimation?: Animation;
+  private readonly reelAnimation?: Animation;
 
   /** Callback function that runs before spinning reel */
-  private onSpinStart?: NonNullable<SlotConfigurations['onSpinStart']>;
+  private readonly onSpinStart?: NonNullable<SlotConfigurations['onSpinStart']>;
 
   /** Callback function that runs after spinning reel */
-  private onSpinEnd?: NonNullable<SlotConfigurations['onSpinEnd']>;
+  private readonly onSpinEnd?: NonNullable<SlotConfigurations['onSpinEnd']>;
 
   /** Callback function that runs after spinning reel */
-  private onNameListChanged?: NonNullable<SlotConfigurations['onNameListChanged']>;
+  private readonly onNameListChanged?: NonNullable<SlotConfigurations['onNameListChanged']>;
 
   /**
    * Constructor of Slot
@@ -81,7 +81,7 @@ export default class Slot {
         { transform: `translateY(-${(this.maxReelItems - 1) * (7.5 * 16)}px)`, filter: 'blur(0)' }
       ],
       {
-        duration: this.maxReelItems * 100, // 100ms for 1 item
+        duration: this.maxReelItems * 50, // 100ms for 1 item
         easing: 'ease-in-out',
         iterations: 1
       }
@@ -102,7 +102,7 @@ export default class Slot {
       : [];
 
     reelItemsToRemove
-      .forEach((element) => element.remove());
+      .forEach((element) => { element.remove(); });
 
     this.havePreviousWinner = false;
 
@@ -216,7 +216,7 @@ export default class Slot {
 
     Array.from(reelContainer.children)
       .slice(0, reelContainer.children.length - 1)
-      .forEach((element) => element.remove());
+      .forEach((element) => { element.remove(); });
 
     this.havePreviousWinner = true;
 

@@ -42,7 +42,7 @@ import SoundEffects from '@js/SoundEffects';
   }
 
   const soundEffects = new SoundEffects();
-  const MAX_REEL_ITEMS = 40;
+  const MAX_REEL_ITEMS = 500;
   const CONFETTI_COLORS = ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff'];
   let confettiAnimationId;
 
@@ -82,7 +82,7 @@ import SoundEffects from '@js/SoundEffects';
     stopWinningAnimation();
     drawButton.disabled = true;
     settingsButton.disabled = true;
-    soundEffects.spin((MAX_REEL_ITEMS - 1) / 10);
+    soundEffects.spin((MAX_REEL_ITEMS - 1) / 20);
   };
 
   /**  Functions to be trigger after spinning */
@@ -128,8 +128,8 @@ import SoundEffects from '@js/SoundEffects';
   });
 
   // Hide fullscreen button when it is not supported
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore - for older browsers support
+
+  // @ts-expect-error - for older browsers support
   if (!(document.documentElement.requestFullscreen && document.exitFullscreen)) {
     fullscreenButton.remove();
   }
