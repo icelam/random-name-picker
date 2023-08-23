@@ -40,15 +40,7 @@ body {
 }
 
 .theme--red {
-  background: linear-gradient(
-    240deg,
-    $color-red-step1 0.13%,
-    $color-red-step2 26.19%,
-    $color-red-step3 52.6%,
-    $color-red-step4 79.08%,
-    $color-red-step5 100%
-  );
-  color: $color-text-light;
+  background: transparent url(../../assets/images/minigame.jpg) no-repeat 50%/100%;
 }
 
 .theme--purple {
