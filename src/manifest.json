@@ -1,7 +1,7 @@
 {
-  "name": "Random Name Picker for Lucky Draw",
-  "short_name": "Random Name Picker",
-  "description": "Simple HTML5 random name picker for picking lucky draw winner using Web Animations API",
+  "name": "Stringee - Minigame Khám Phá CI/CD & K8S",
+  "short_name": "Stringee Tech Talk 2023",
+  "description": "Công bố kết quả Minigame Khám Phá CI/CD & K8S",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f20c49",
