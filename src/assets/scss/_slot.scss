@@ -3,13 +3,14 @@
   text-align: center;
   position: relative;
   z-index: $z-index-lucky-draw; // make sure contents are on top of confetting
+  margin: 0 0 60px 0
 }
 
 .title {
   height: auto;
   max-width: $title-width;
   width: 100%;
-  margin: $title-margin-top 0 $title-margin-bottom 0;
+  margin: 0 80px 0 0;
   position: relative;
   z-index: $z-index-title; // make sure title on top of sunburst
   color: $color-title-border;
