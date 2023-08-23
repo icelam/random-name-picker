@@ -22,28 +22,28 @@ include ../mixins/icons
       #sunburst.sunburst
         img(src="~@images/sunburst.svg" alt="sunburst")
 
-    button#draw-button.solid-button Draw
+    button#draw-button.solid-button Quay ngay
 
   #settings.settings
     #settings-panel.settings__panel
       div.settings__panel__group
         h1.settings__title Settings
         div.input-group
-          label.input-label(for="name-list") Name List
+          label.input-label(for="name-list") Nhập danh sách
           textarea.input-field.input-field--textarea(rows="8" placeholder="Separate each name by line break" id="name-list")
 
         div.input-group.input-group--2-column
-          label.input-label(for="remove-from-list") Remove winner from list
+          label.input-label(for="remove-from-list") Xóa người quay trúng
           label.input--switch
             input(type="checkbox" checked="true" id="remove-from-list")
             span.slider
 
         div.input-group.input-group--2-column
-          label.input-label(for="enable-sound") Enable sound effect
+          label.input-label(for="enable-sound") Bật âm thanh
           label.input--switch
             input(type="checkbox" checked="true" id="enable-sound")
             span.slider
       div.settings__panel__group
-        button#settings-save.solid-button.solid-button Save
-        button#settings-close.solid-button.solid-button--danger Discard and close
+        button#settings-save.solid-button.solid-button Lưu
+        button#settings-close.solid-button.solid-button--danger Đóng
 
