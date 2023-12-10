@@ -2,7 +2,8 @@
   display: inline-block;
   border: none;
   appearance: none;
-  @include shadow('large') border-radius: 0.625rem;
+  @include shadow('large');
+  border-radius: 0.625rem;
   background-color: $color-button-default-background;
   color: $color-button-text;
   padding: 1rem 0.625rem;
