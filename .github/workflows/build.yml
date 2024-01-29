@@ -1,0 +1,53 @@
+name: Build
+on:
+  push:
+    branches:
+      - 'master'
+    tags-ignore:
+      - '**' # prevent double build on release tag
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+    branches:
+      - '**'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup Node.js version
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        shell: bash
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+      - name: Restore yarn cache
+        uses: actions/cache@v4
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile
+      - name: Build
+        run: |
+          yarn build
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ runner.os }} # artifacts zip name
+          path: |
+            dist
