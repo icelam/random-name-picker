@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.0.0](https://github.com/icelam/random-name-picker/compare/v1.2.0...v2.0.0) (2024-01-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump dependencies and upgrade to node v18
+
+### Features
+
+* embed title as inline svg for easier theming ([9357a60](https://github.com/icelam/random-name-picker/commit/9357a60eb9fa6a3f7e7d0380f85099dea2bf2e28))
+
+
+* bump dependencies and upgrade to node v18 ([14abac6](https://github.com/icelam/random-name-picker/commit/14abac602e2e8775f2ccb5b0b24f63e5a21ba819))
+
 ## [1.2.0](https://github.com/icelam/random-name-picker/compare/v1.1.0...v1.2.0) (2022-09-22)
 
 
