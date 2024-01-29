@@ -189,8 +189,8 @@ export default class Slot {
 
     reelContainer.appendChild(fragment);
 
-    console.log('Displayed items: ', randomNames);
-    console.log('Winner: ', randomNames[randomNames.length - 1]);
+    console.info('Displayed items: ', randomNames);
+    console.info('Winner: ', randomNames[randomNames.length - 1]);
 
     // Remove winner form name list if necessary
     if (shouldRemoveWinner) {
@@ -199,7 +199,7 @@ export default class Slot {
       ), 1);
     }
 
-    console.log('Remaining: ', this.nameList);
+    console.info('Remaining: ', this.nameList);
 
     // Play the spin animation
     const animationPromise = new Promise((resolve) => {

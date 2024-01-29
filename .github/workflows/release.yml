@@ -16,7 +16,6 @@ jobs:
         uses: actions/setup-node@main
         with:
           node-version-file: '.nvmrc'
-
       - name: Generate release body
         run: |
           yarn extract-latest-change-log
