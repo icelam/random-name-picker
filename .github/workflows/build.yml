@@ -51,7 +51,7 @@ jobs:
           report-json: ${{ env.TEST_REPORT_ESLINT_FOLDER }}/${{ env.TEST_REPORT_ESLINT_FILENAME }}
           only-pr-files: false
       - name: Preserve lint report as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lint-report
           path: ${{ env.TEST_REPORT_ESLINT_FOLDER }}/*
