@@ -19,6 +19,14 @@ env:
   TEST_REPORT_ESLINT_FOLDER: reports/eslint
   TEST_REPORT_ESLINT_FILENAME: eslint.json
 
+# Allow Dependabot PRs to to run correctly
+# https://github.community/t/opt-in-to-allow-writable-tokens-on-dependabot-workflows/183041
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+  checks: write
+
 jobs:
   lint:
     name: Linting
