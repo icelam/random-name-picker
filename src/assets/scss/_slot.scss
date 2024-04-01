@@ -34,6 +34,22 @@
   top: 1rem;
   right: 1rem;
 
+  // Fixing the notch issue on iOS when using "viewport-fit=cover"
+  --safe-area-inset-right: 0px;
+
+  // Older iOS versions
+  @supports (top: constant(safe-area-inset-top)) {
+    --safe-area-inset-right: constant(safe-area-inset-right);
+  }
+
+  @supports (top: env(safe-area-inset-top)) {
+    --safe-area-inset-right: env(safe-area-inset-right);
+  }
+
+  @supports (padding: unquote('max(0px)')) {
+    right: unquote('max(1rem, var(--safe-area-inset-right))');
+  }
+
   .icon-button {
     margin: 0 0 0 1.5rem;
   }
