@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.1.0](https://github.com/icelam/random-name-picker/compare/v2.0.0...v2.1.0) (2024-04-02)
+
+
+### Features
+
+* add content security policy ([022bf28](https://github.com/icelam/random-name-picker/commit/022bf28e032dbd32b5627fa74a02c4f7b636f1a6))
+* whitelist execution of gtm custom scripts ([4bad1d3](https://github.com/icelam/random-name-picker/commit/4bad1d36ed9b6ca7f43381c50f110643fb60dc31))
+
+
+### Bug Fixes
+
+* remove  left and right white space on ios devices with notch ([019f107](https://github.com/icelam/random-name-picker/commit/019f10792f953bed3f2f68ec40ba7e1dd631622a))
+
 ## [2.0.0](https://github.com/icelam/random-name-picker/compare/v1.2.0...v2.0.0) (2024-01-29)
 
 
