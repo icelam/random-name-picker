@@ -186,13 +186,8 @@
   }
 }
 
-.theme--red .settings__panel {
-  background-color: $color-settings-background-red;
-  color: $color-text-light;
-}
-
-.theme--purple .settings__panel {
-  background-color: $color-settings-background-purple;
+.settings__panel {
+  background-color: $color-settings-background;
   color: $color-text-light;
 }
 
