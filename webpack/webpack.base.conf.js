@@ -3,6 +3,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlVariablesPlugin = require('html-variables-plugin');
+const { v4: uuidv4 } = require('uuid');
+
+process.env.APP_NONCE = Buffer.from(uuidv4(), 'binary').toString('base64');
 
 module.exports = {
   entry: {

@@ -18,11 +18,11 @@ const dotenvFiles = [
   path.resolve(__dirname, '../.env')
 ].filter((dotenvFile) => fs.existsSync(dotenvFile));
 
-console.log(`${dotenvFiles[0]} will be used.\n`);
+console.log(`${dotenvFiles} will be used.\n`);
 
 // Load env variables
 dotenv.config({
-  path: dotenvFiles[0]
+  path: dotenvFiles
 });
 
 const clientEnv = getClientEnvironment('production');
