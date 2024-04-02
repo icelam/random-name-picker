@@ -29,17 +29,6 @@ body {
 }
 
 #app {
-  padding: 0 3.125rem;
-  min-height: 100%;
-  overflow: hidden;
-  @include flex-center;
-
-  @media #{$mobile} {
-    padding: 0 5%;
-  }
-}
-
-.theme--red {
   background: linear-gradient(
     240deg,
     $color-red-step1 0.13%,
@@ -49,19 +38,14 @@ body {
     $color-red-step5 100%
   );
   color: $color-text-light;
-}
+  padding: 0 3.125rem;
+  min-height: 100%;
+  overflow: hidden;
+  @include flex-center;
 
-.theme--purple {
-  background: linear-gradient(
-    0deg,
-    $color-purple-step1 0.13%,
-    $color-purple-step2 23.02%,
-    $color-purple-step3 46.22%,
-    $color-purple-step4 69.56%,
-    $color-purple-step5 92.87%,
-    $color-purple-step6 100%
-  );
-  color: $color-text-light;
+  @media #{$mobile} {
+    padding: 0 5%;
+  }
 }
 
 .main {

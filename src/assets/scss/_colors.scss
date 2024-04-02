@@ -10,13 +10,6 @@ $color-red-step3: #ff3634;
 $color-red-step4: #ff223c;
 $color-red-step5: #ff0c45;
 
-$color-purple-step1: #7e3efd;
-$color-purple-step2: #7b3df9;
-$color-purple-step3: #7039ed;
-$color-purple-step4: #5f32d8;
-$color-purple-step5: #4828bc;
-$color-purple-step6: #3f25b2;
-
 $color-yellow: #ffbf1f;
 $color-blood-orange: #e54c23;
 $color-shadow: rgba($color-black, 0.2);
@@ -45,8 +38,7 @@ $color-slot-text: $color-black;
 
 // settings
 $color-settings-mask: rgba($color-black, 0.6);
-$color-settings-background-red: darken($color-red-step5, 8%);
-$color-settings-background-purple: darken($color-purple-step6, 8%);
+$color-settings-background: darken($color-red-step5, 8%);
 
 // textarea
 $color-input-background: $color-light-grey;
@@ -55,5 +47,4 @@ $color-input-text: $color-black;
 
 // switch
 $color-switch-handle-disabled: $color-dark-grey;
-$color-switch-handle-red: darken($color-red-step5, 8%);
-$color-switch-handle-purple: darken($color-purple-step6, 8%);
+$color-switch-handle: darken($color-red-step5, 8%);

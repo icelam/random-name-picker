@@ -89,7 +89,8 @@
   height: $switch-slider-height;
   border-radius: $switch-slider-height;
   flex: 0 0 $switch-slider-width;
-  @include shadow('small') margin: 0 0 0 1rem;
+  @include shadow('small');
+  margin: 0 0 0 1rem;
 
   .slider {
     position: absolute;
@@ -124,20 +125,10 @@
   }
 
   input:checked + .slider:before {
+    background-color: $color-switch-handle;
     transform: translateX(
       $switch-slider-width - ($switch-slider-padding * 2) -
         $switch-handle-diameter
     );
-  }
-}
-
-.theme--red .input--switch {
-  input:checked + .slider:before {
-    background-color: $color-switch-handle-red;
-  }
-}
-.theme--purple .input--switch {
-  input:checked + .slider:before {
-    background-color: $color-switch-handle-purple;
   }
 }
