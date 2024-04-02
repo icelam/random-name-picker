@@ -1,5 +1,4 @@
 // polyfills
-import 'core-js/stable';
 import 'web-animations-js/web-animations.min';
 import 'element-remove-polyfill';
 
